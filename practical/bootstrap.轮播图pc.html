@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>pc轮播图</title>
+  <link rel="stylesheet" href="../assets/lib/bootstrap/css/bootstrap.min.css">
+  <style>
+      .pc_imgBox{
+          display: block;
+          height: 400px;
+          width: 100%;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+      }
+  </style>
+</head>
+<body>
+  <!--
+需求：高度固定，图片居中，容器铺满
+怎么设置不同图片：使用css选择器来设置不太好（html内容动态改变不利于维护）
+-->
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="item active">
+          <a href="#" class="pc_imgBox" style="background-image: url(../assets/img/banner1pc.jpg)"></a>
+      </div>
+      <div class="item">
+          <a href="#" class="pc_imgBox" style="background-image: url(../assets/img/banner2pc.jpg)"></a>
+      </div>
+      <div class="item">
+          <a href="#" class="pc_imgBox" style="background-image: url(../assets/img/banner3pc.jpg)"></a>
+      </div>
+      <div class="item">
+          <a href="#" class="pc_imgBox" style="background-image: url(../assets/img/banner4pc.jpg)"></a>
+      </div>
+    </div>
+    <a class="left carousel-control" href="#carousel-example-generic"  data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  </div>
+  <script src="../assets/lib/jquery/jquery.min.js"></script>
+  <script src="../assets/lib/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
