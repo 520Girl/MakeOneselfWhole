@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>弹性盒布局</title>
+  <style>
+    li,ul,ol{
+      list-style: none;
+    }
+    .demo{
+      width: 100%;
+      color: #000000;
+      background: #cccccc;
+      font-size: 14px;
+      box-sizing: border-box;
+      height: 1000px;
+
+    }
+    .demo .demo_container{
+      padding: 20px 20px;
+      border-bottom: 1px dashed #000000;
+    }
+    .demo .demo_container .demo_container_left{
+      width: 25%;
+      /* display: flex; */
+      /* flex-direction: row;
+      flex-wrap: wrap; */
+      /* justify-content: space-around; */
+      /* align-content: center; 
+      flex-direction: column; */
+      /* align-items: flex-end; */
+    }
+    .container_left_bottom{
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      
+    }
+    .demo_container_right div{
+      display: inline-block;
+    }
+    .demo_container_right{
+      width: 250px;
+      height: 200px;
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+    }
+    .demo_container_left h1{
+      font-size: 20px;
+      font-weight: 700;
+      color: #000000;
+      padding: 10px 0;
+      margin-bottom: 0;
+      text-align: center;
+      border: 1px solid red;
+
+    }
+    .demo_container_left ul{
+      border: 1px solid red;
+      padding-left: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      
+    }
+    .demo_container_left  ul li{
+    }
+    .demo_container_left  ul li:first-child{
+      padding-left: 0;
+    }
+    .demo_container_left  ul li:first-child{}
+  </style>
+</head>
+<body>
+  <div class="demo">
+    <div class="demo_container">
+      <div class="demo_container_left">
+        <h1>这是一个全新的计划</h1>
+        <div class="container_left_bottom">
+          <ul>
+            <li>A计划</li>
+            <li>B计划</li>
+          </ul>
+          <ul>
+            <li>A计划旁边的计划</li>
+            <li><b>B计划</b></li>
+          </ul>
+        <div>多么可笑的矜持</div>
+        <div>多么可笑的矜持</div>
+      </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
