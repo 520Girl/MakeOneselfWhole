@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>组件中细节点使用</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1 ref="h1" @click="show">操作普通的dom元素</h1>
+    <banner ref=banner  @fvevent="add" :content=" 50"></banner>
+    <banner ref=banner @click.native="show" @fvevent="add" :content=" 50"></banner>
+  </div>
+<script>
+  var banner={
+    data(){
+      return {
+      num:20,
+     numbers:this.content
+    }
+    },
+    props:{//定义父传过来的东西的规则,参数组件校验
+      content:{
+        type:Number,
+        required:false,
+        default:"默认的值",
+        validato:function(value){
+          return (value.length>5)
+        }
+      }
+    },
+    template:"<h1 @click='show'>组件的使用{{content}}</h1>",
+    methods:{
+      show(){ //子给父传东西
+        this.$emit("fvevent",this.num)
+        console.log(this.numbers);
+        console.log(this.num)
+      }
+    }
+  }
+ var vm = new Vue({
+  el:'#app',
+  data:{
+      msg:'组件操作dom元素',
+      title:""
+   }, 
+  methods:{
+    show(){
+      console.log(this.$refs.h1)
+      console.log(this.$refs.banner.$el.innerHTML)
+    },
+    add(value){
+      alert("弹出什么来"+value)
+    }
+  },
+  components:{
+    banner
+  }
+ }) ;
+ </script>
+</body>
+</html>

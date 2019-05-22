@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <div id="app"><!-- 监听原生的父元素上的事件 -->
+    <banner @click.native="nativeEvent"></banner>
+  </div>
+<script>
+  var banner={
+    template:"<h1>我是事件</h1>"
+  }
+ var vm = new Vue({
+  el:'#app',
+  data:{
+      msg:'message',
+ 
+   }, 
+  methods:{
+    nativeEvent:function(){
+      alert("我是原生的事件")
+    }
+  },
+  components:{
+    banner
+  }
+ }) ;
+ </script>
+</body>
+</html>

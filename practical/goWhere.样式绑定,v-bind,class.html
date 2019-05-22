@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>样式绑定</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+  <style>
+   .fontsize{
+     font-size: 50px;
+   }
+   .color{
+     color: red;
+   }
+   .background{
+     background: red;
+   }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1 v-bind:class="fontsize">这个可是会字体大小变化的</h1>
+    <h1 v-bind:style="fontsizes">这个可是style会字体大小变化的</h1>
+    <h1 v-bind:class="{color:displays}" @click="show">这个颜色会发生变化</h1><!-- class的对象绑定 -->
+    <h1 v-bind:class="[color,background]" @click="show2">这个颜色会发生变化</h1><!-- class的数组绑定 -->
+  </div>
+<script>
+ var vm = new Vue({
+  el:'#app',
+  data:{
+      msg:'message',
+      fontsize:"fontsize",
+      fontsizes:{
+        fontSize:"100px",
+      },
+      displays:false,
+      color:"color",
+      background:" "
+   }, 
+  methods:{
+    show:function(){
+      this.displays = !this.displays;
+    },
+    show2(){
+      this.background = this.background === "background"? "":"background"
+    }
+  }
+ }) ;
+ </script>
+</body>
+</html>

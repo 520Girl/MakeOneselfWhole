@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>列表渲染</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 使用数组方法:Push pop shift unshift splice sort reverse -->
+    <div v-for="(item,index) of list" :key="">
+      {{item}}---{{index}}
+    </div>
+    <div v-for="(item,index) of lists" :key="item.id">
+        {{item.text}}---{{index}}
+    </div>
+    <!-- 改变引用:
+    vm.list=[
+        "hello44",
+        "dell",
+        "word"
+      ] -->
+      <!-- 占位符的使用template,可以包裹一些元素,在页面中不会显示 -->
+      <template v-for="(item,index) of lists" :key="">
+        <div >
+            {{item.text}}---{{index}}
+          </div>
+          <div >
+              {{item.text}}---{{index}}
+          </div>
+      </template>
+
+
+
+      <!-- 对象的渲染 -->
+      <div v-for="(item,key,index) of listss">
+        {{item}}--{{key}}---{{index}}
+      </div>
+      <!-- 改变引用来改变元素:
+    vm.listss=[
+        name:"阮江",
+      password:"1234565555"
+      ] -->
+        <!-- 还可以通过set方法sex,这是全局的方法
+          Vue.set(vm.$data.listss,"sex",'男')
+          也可以使用实例方法
+          vm.$set(vm.$data.listss,"sex",'男')
+        -->
+  </div>
+<script>
+
+ var vm = new Vue({
+  el:'#app',
+  data:{
+      msg:'message',
+      list:[
+        "hello",
+        "dell",
+        "word"
+      ],
+      lists:[{
+        id:"0122220",
+        text:"hello"
+      },{
+        id:"0122221",
+        text:"hellosss"
+      },{
+        id:"0122222",
+        text:"hellosss"
+      }
+    ],
+    listss:{
+      name:"阮江",
+      password:"123456"
+    }
+   }, 
+  methods:{}
+ }) ;
+ Vue.set(vm.$data.listss,"sex",'男')
+ vm.$set(vm.$data.listss,"sexs",'内存')
+ </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>失败的案例 这个说明子组件给父组件传值不能使用对象的方面创建的子组件</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1 >我是</h1>
+    <template id="temp">
+      <div  v-bind:content="msg" v-on:deletes="show" >
+        我是一个局部组件需要在vue中挂载{{msg}}
+        <button v-on:click="shows" ></button>
+        <h1 >我看看可不可以</h1>
+      </div>
+    </template>
+  </div>
+<script>
+  //创建局部组件
+  var TodoList={
+    props:["content"],
+    template:"#temp",
+    data(){
+      return{
+        message:"给父组件传值",
+        deletess:"我这是要给父组件传值你懂我意思吧"
+      }
+    },
+    methods: {
+      add(){
+        this.$emit('deletes',this.deletess,this.message)
+      },
+      shows:function(){
+        console.log("我是")
+      }
+    },
+  }
+
+
+ var vm = new Vue({
+  el:'#app',
+  data:{
+      msg:'父组件给子组件传值',
+   }, 
+  methods:{
+    show(deletess,name,sex){
+      console.log(name)
+      console.log(sex)
+    }
+  },
+  components:{
+    TodoList
+  }
+ }) ;
+ </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="msg">
+    <button @click="show">提交</button>
+    <todo-item v-bind:content="item" 
+               v-for="(item,index) in message"
+               @fuevent="deletess" >
+    </todo-item>  <!-- 绑定的方法不能是大写 -->
+  </div>
+<script>
+  //创建一个全局组件
+  Vue.component('TodoItem',{
+    props:['content'],  //父组件向子组件传值
+    template:'<li @click="handleItemClick" >{{msg}}----{{content}}----我是组件todoItem</li>',
+    data(){
+      return{
+        msg:"我是子组件的data数据"
+      }
+    },
+    methods:{
+      handleItemClick(){
+        this.$emit("fuevent",this.index,this.msg) //监听事件,绑定一个fuEvent事件,子组件向父组件传值
+      },
+      alerts(){
+        alert('缓缓升起')
+      }
+    }
+  })
+ var vm = new Vue({
+  el:'#app',
+  data:{
+      msg:'',
+      message:['消息一','消息二','消息三']
+   }, 
+  methods:{
+    show:function(){
+      this.message.push(this.msg)
+      this.msg=''
+    },
+    add(){
+      console.log("阮江")
+    },
+    deletess(index,message){
+      this.message.splice(index,1)
+      console.log(message)
+    }
+  }
+ }) ;
+ </script>
+</body>
+</html>

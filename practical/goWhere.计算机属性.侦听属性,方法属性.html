@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>计算机属性,侦听属性,方法属性的区别</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <dl>
+      <dt>1.方法属性:</dt>
+      <dd>{{fullName()}}</dd>
+    </dl>
+    <dl>
+      <dt>2.计算机属性:</dt>
+      <dd>{{fullNames}}</dd>
+    </dl>
+    <dl>
+      <dt>3.侦听属性:</dt>
+      <dd>{{fullNamess}}</dd>
+    </dl>
+    <dl>
+      <dt>3.侦听属性:</dt>
+      <dd>{{sex}}</dd>
+    </dl>
+  </div>
+<script>
+ var vm = new Vue({
+  el:'#app',
+  data:{
+      msg:'message',
+      firstName:"阮",
+      lastName:"江",
+      age:25,
+      fullNamess:"阮江",
+      girl:"girl"
+   }, 
+   //方法属性,监听数据的改变
+  methods:{
+    fullName(){
+      console.log("方法属性改变")
+      return this.firstName+ " "+ this.lastName
+    }
+  },
+  //计算机属性监听数据的变化,带有缓存
+  computed:{
+    fullNames(){
+      console.log("计算一次计算机属性")
+      return this.firstName+ " "+ this.lastName
+    },
+    sex:{
+      get(){
+        return this.girl + "" +this.age +"岁"
+      },
+      set:function(value){//这个值是赋值赋的值为sex的值
+        var arr =value.split(" ");
+        this.girl=arr[0];
+        this.age =arr[1];
+      }
+    }
+  },
+  //侦听属性监听数据的变化,带有缓存,比较上面复杂
+  watch: {
+    firstName(){
+      console.log("计算一次监听属性")
+      return this.fullNamess=this.firstName+ " "+ this.lastName
+    },
+    lastName(){
+      console.log("计算一次监听属性")
+      return this.fullNamess=this.firstName+ " "+ this.lastName
+    }
+  },
+ }) ;
+ </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div>{{msg + "name"}}</div>
+    <div v-if="show">{{msg}}</div>
+    <div v-show="show">{{msg}}</div>
+    <div>
+      <h1>v-if v-else v-else-if的应用</h1>
+      <div v-if="num === 0">this num =0</div>
+      <div v-else-if="num === 2">this num =2</div>
+      <div v-else="num === 50">this num =50</div>
+    </div>
+    <div>
+      <h1>v-if的特性</h1>
+      <div v-if="content">
+        用户名:<input key="username"/>
+      </div>
+      <div v-else>
+          邮箱名:<input key="password"/>
+      </div>
+    </div>
+  </div>
+<script>
+ var vm = new Vue({
+  el:'#app',
+  data:{
+      msg:'message',
+      show:true,
+      num:50,
+      content:true,
+   }, 
+  methods:{}
+ }) ;
+ </script>
+</body>
+</html>

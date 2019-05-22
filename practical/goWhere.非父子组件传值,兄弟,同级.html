@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>非父子组件传值(vue中的总线机制(Bus,发布订阅者模式,观察者模式),或者vuex)</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <child content="content"></child>
+    <banner banner="banner"></banner>
+  </div>
+<script>
+//需求,我需要两个子组件相互传值
+Vue.prototype.bus= new Vue()
+  var child={
+    // data() {
+    //   return {
+    //     content:"软件"
+    //   }
+    // },
+    props:['content'],
+    template:"<h2 @click='handeClick'>子组件{{content}}</h2>",
+    methods:{
+      ruan(){
+        console.log(this.content)
+      },
+      handeClick:function(){
+        this.bus.$emit('change',this.content)//触发change事件
+      }
+    }
+  }
+  var banner={
+    data(){
+      return{
+          userself:""
+      }
+    },
+    props:['banner'],
+    template:"<h2 @click='show'>子组件{{banner}}</h2>",
+    methods:{
+      show(){
+        alert(this.userself)
+      }
+    },
+    mounted() {//这个监听触发的事件
+      this.bus.$on("change",(value)=>{
+        console.log("输出我来看看")
+        console.log(value)
+         this.userself = value;
+         console.log(this.userself)
+      })
+    },
+  }
+ var vm = new Vue({
+  el:'#app',
+  data:{
+      msg:'message',
+   }, 
+  methods:{},
+  components:{
+    child,
+    banner
+  }
+ }) ;
+ </script>
+</body>
+</html>
