@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>apply</title>
+</head>
+<body>
+    <script>
+        // function person(name){
+        //   this.name=name;
+        //   this.showfunc =function(){
+        //     console.log("我是")
+        //   }
+        // } 
+        // function cat(name){
+        //   person.apply(this,arguments);
+        // }
+        // var ruan = new cat("ruanj");
+        // ruan.showfunc();
+        // console.log(ruan.name)
+
+        // function Person(name,sex){
+        //   this.name = name;
+        //   this.sex = sex;
+        // }
+        // function Student(name,sex,age){
+        //   this.age =age;
+        //   Person.apply(this,arguments) //arguments =(name,sex,age)
+        // }
+        // var ruan = new Student("软降","22","四川")
+        // alert(ruan.name 　+ ruan.sex + ruan.age)
+
+            //  vararr1=["1","2","3"];
+
+            // vararr2=["4","5","6"];
+            //   var arr =[]
+            // console.log(arr.push.apply(vararr1,vararr2));
+
+            // function add(){
+            //   this.name="阮江"
+            // }
+            // function show(){
+            //   this.name="明白"
+            // }
+            // function func(){
+            //   show.apply(this)
+            //   add.apply(this) 
+            // }
+            // var ruan = new func()
+            // console.log(ruan.name); //输出的是阮江后面那个
+      </script>
+</body>
+</html>
+

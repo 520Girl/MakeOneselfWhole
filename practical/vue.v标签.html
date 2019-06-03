@@ -88,6 +88,11 @@
       </li>
       
     </ul>
+    <div style="margin-top:100px;">
+        <ul>
+          <li v-show="msg" ref="msg" @click="refsshiyong">我来自天安门</li>
+        </ul>
+      </div>
   </div>
 </body>
 </html>
@@ -96,11 +101,14 @@
 var app =new Vue({ //对象
   el:'#app', //绑定html的v
   data:{     //绑定数据的vm
-    msg:'123',
+    msg:"123",
     html:'<h3>这里是h3标签</h3>',
     mytitle:'这是a标签'
   },
   methods:{
+    refsshiyong(){
+      console.log(this.$refs.msg)
+    },
     show:function(){
       console.log('这是一个提示')
     },

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>仿佛明白了点东西</title>
+</head>
+<body>
+  <script>
+    function wrapper(){
+      this.name = "东西"
+      var name = "阮江"
+      var sex = "男"
+      console.log(name);
+      
+      var ruan = function person(){
+        var sex = "body"
+        //var content = this;
+        console.log(name);
+        console.log(this.name);
+      }
+     // person()
+      ruan() //这是直接调用这个函数并执行
+      //console.log(ruan) //表示输出这个函数不是输出函数的结果
+    }
+    wrapper();
+    person();// 这个输出一个未定义 因为外部无法调用内部的函数
+  </script>
+</body>
+</html>

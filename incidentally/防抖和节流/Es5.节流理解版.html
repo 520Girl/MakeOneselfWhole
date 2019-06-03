@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>节流理解版</title>
+  <div id="demo" style="height: 100px;width: 100px;color: red;font-size: 50px;border: 1px solid green;text-align: center;line-height: 100px">
+      1
+  </div>
+</head>
+<body>
+  <script>
+    var oDome = document.getElementById('demo');
+    var num = 1;
+    function add(){
+      oDome.innerHTML = num++
+    }
+
+
+    function throttle(func,weit){
+      let timer;
+      let timeNow = 0
+      console.log(1)
+      return function(e){
+        console.log(2)
+        let context = this;
+        let args = arguments;
+        let data = Date.now();
+        if(data - timeNow > weit){
+          console.log(3)
+          func.apply(context,args)
+          timeNow = data;
+        }
+        console.log(5)
+      }
+    }
+    console.log(4)
+    oDome.onmousemove = throttle(add,1000)
+  </script>
+</body>
+</html>

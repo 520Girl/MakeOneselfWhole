@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <div>
+    1
+  </div>
+</head>
+<body>
+  <script>
+    var bodY = document.getElementsByTagName("div")[0];
+    // bodY.onmousemove= function(e){
+    //   console.log(e);
+    // }
+    var num= 1
+    function addS(){
+      bodY.innerHTML =num++
+    }
+    function add(name){
+      console.log(1);
+      //console.log(name)
+      return function(){
+        console.log(name)
+        addS()
+      }
+    }
+   // add("阮江")
+   function show(){
+     console.log("我是一直雄鸟");
+   }
+    bodY.onclick =add("r润") //第一次过后都是执行的都是return后的函数
+   // bodY.onclick = show();
+  </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>三列布局</title>
+  <style>
+    /* 查看我的 oneNote 中的app开发项目带有详细记载*/
+  .wrapper{
+    width: 100%;
+    height: 500px;
+    background: red;
+    text-indent: 50px;
+    vertical-align:bottom;
+    background: url('../assets/img/banner1.jpg'),url('../assets/img/banner2.jpg')
+  }
+  .three-layout{
+    height: 500px;
+    display: flex;
+    align-items: center;
+  }
+  .three-layout>div{
+    width: 30%;
+    height: 50px;
+    border: 1px solid black;
+    background: #ffffff;
+  }
+  .three-layout div:nth-child(1){
+    order:3 ;
+  }
+  .three-layout div:nth-child(2){
+    order:2 ;
+  }
+  .three-layout div:nth-child(3){
+    order: 1;
+  }
+
+  .two-layout{
+    
+  }
+
+  .two-layout span:nth-child(1){
+    width: 50%;
+    background: yellow;
+    float: left;
+  }
+  .two-layout span:nth-child(2){
+    width: 50%;
+    background: black;
+    display: inline-block;
+  }
+  h3.blogroll {
+width: 200px;
+height:75px;
+background:url('../assets/img/banner1.jpg') 0 0 no-repeat;
+text-indent:-9999px;
+}
+ul {
+list-style: none;
+}
+ 
+ul li {
+padding-left:40px;
+background:url('../assets/img/banner1.jpg') 0 0 no-repeat;
+}
+
+/* .content{
+display:flex;
+justify-content: center;
+align-items: center;
+}
+.middle{
+  flex: 1;
+}
+.content >div {
+  border: 1px solid #000000;
+} */
+
+/* .content{
+  position: relative;
+}
+.middle{
+  position: absolute;
+  left: 100px;
+  right: 500px;
+  border: 1px solid #000000;
+}
+.left{
+  position: absolute;
+  left: 0;
+  width:100px;
+  border: 1px solid #000000;
+}
+.right{
+  position: absolute;
+  right: 0;
+  width: 500px;
+  border: 1px solid #000000;
+} */
+
+/* .left{float: left;width: 100px;border: 1px solid #000000;}
+.right{float: right;width: 500px;border: 1px solid #000000;}
+.middle{border: 1px solid #000000;} */
+  </style>
+</head>
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
+  <div class="content">
+    <div class="left">左边的元素</div>
+    <div class="middle">中间的元素</div>
+    <div class="right">右边的元素</div>
+  </div>
+</body>
+</html>

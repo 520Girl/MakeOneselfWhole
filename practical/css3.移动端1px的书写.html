@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>1px 解决方案</title>
+  <style>
+    h1:first-child{
+      box-shadow: inset 0px -1px 1px -1px #000000;
+      margin-bottom: 20px;
+    }
+    h1:last-of-type::after{
+      content: "";
+      display: inline-block;
+      height: 1px;
+      width: 100%;
+      background-color: #000000;
+      transform: scaleY(.5);
+    }
+    p{
+      height: 0;
+      width: 0;
+      border-top: 50px solid red;
+      border-left: 50px solid transparent;
+      border-bottom: 50px solid transparent;
+      border-right: 50px solid transparent;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>通过box-shadow实现的1px</h1>
+    <h1>通过伪类+transform实现的1px</h1>
+    <h1>三角形的制作</h1>
+    <p></p>
+  </div>
+</body>
+</html>

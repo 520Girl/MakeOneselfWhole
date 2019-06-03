@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>鼠标事件</title>
+  <style>
+  ul:first-child img{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+  }
+  </style>
+</head>
+<body>
+  <div>
+    <ul id="demo">
+      <li><img  id="img" src="../assets/img/red.jpg " alt="" ></li>
+    </ul>
+  </div>
+  <script>
+    // let demo = document.body; 
+    // demo.onclick= (e)=>{
+    //   console.log(e);
+    // }
+    
+      var imgX="";
+      var imgY ="";
+      var timer = null;
+      clearTimeout(timer);
+      timer=setTimeout(()=>{
+        let imgDom = document.getElementById('img')
+          imgDom.ondragstart = (e)=>{
+          var imgX=e.offsetX;
+          var imgY=e.offsetY;
+          console.log("图片宽度" + imgX);
+          console.log("图片宽度" + imgY);
+          }
+          imgDom.ondrag = (e)=>{
+            let imgOndragY = e.pageX;
+            let imgOndragX = e.pageY;
+            console.log("距离页面边缘" + imgOndragY);
+            console.log("距离页面边缘" + imgOndragX)
+            
+            console.log(imgOndragX+'-'+imgOndragY);
+
+            if(imgOndragX==0 && imgOndragY==0){ //ondrag最后一下回变为0,0,所以当他为0时return出去,不处理这种情形
+              return
+            }
+            imgOndragX -=imgX
+            imgOndragY -=imgY
+            imgDom.style.left=imgOndragY +"px"
+            imgDom.style.top=imgOndragX +"px"
+          }
+          imgDom.ondragover=(e)=>{
+            console.log("拖拽结束")
+          }
+      },1000)
+
+  </script>
+</body>
+</html>

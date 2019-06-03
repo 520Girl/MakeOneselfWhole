@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>for的循环使用</title>
+</head>
+<body>
+  <script>
+    function sorts(arr){
+      for(var i=0;i<arr.length - 1; i++){
+        for(var a=0;a<arr.length-i-1;a++){
+          if(arr[a]<arr[a+1]){
+            var element = arr[a];
+            arr[a] = arr[a+1];
+            arr[a+1] = element;
+          }
+        }
+      }
+    }
+    var arr= [44,7,3,43,66,9];
+    sorts(arr);
+    console.log(arr);
+  </script>
+</body>
+</html>

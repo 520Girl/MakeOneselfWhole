@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>this</title>
+  <button onclick="Promotes()">点我变量提升</button>
+</head>
+<body>
+    <script>
+      {
+      window.onload=function(){
+        this.name="阮江";
+        console.log(this.firstOne);
+        this.leave=()=>{
+           firstOne= "域名的购买3年years.run"
+           var firstOne;
+          return this.name;
+        }
+        console.log(`${this.name}给自己定一个小目标吧${this.leave()}+ ${this.name}`);
+      }  
+    }
+    {
+      //变量提升,当widow.onload 存在的时候自执行函数无法执行
+      (function Promotes(){
+        x="鬺"
+        console.log(`${x}我来自变量提升出来的值`);
+        console.log( y + "我是undefined因为我不是声明的变量")
+        var x
+        var y=500;
+      })()
+    }
+    {
+      //闭包的使用
+      var timer =null;
+      var time = 50
+      clearTimeout(this.timer);
+      timer= setInterval(function(){
+        console.log(time + "s");
+      },100000);
+    }
+
+    {
+var name="景田"
+name = null;
+
+console.log(name)
+
+
+
+
+    }
+    </script>
+</body>
+</html>

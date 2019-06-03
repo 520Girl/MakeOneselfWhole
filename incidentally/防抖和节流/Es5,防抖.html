@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>防抖</title>
+  <div style="height: 50px;width:100%;background:black;color: #ffff;">
+    <h1 id="num" style="border: 1px solid red">0</h1>
+  </div>
+</head>
+<body>
+  <script>
+    var numb = document.getElementById('num');
+    var num = 0;
+    function add(){
+      return numb.innerHTML = num++
+    }
+    //numb.onmousemove=add;
+
+      //防抖非立即执行
+    function debouce(func,write){
+      let timer;
+      let args = arguments;
+      return function(){
+        if(timer)clearTimeout(timer)
+        timer= setTimeout(function(){
+          func.apply(add,args)
+        },write)
+      }
+    }
+    numb.onclick = debouce(add,1000);
+  </script>
+</body>
+</html>

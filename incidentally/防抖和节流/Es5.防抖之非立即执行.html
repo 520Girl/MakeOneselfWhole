@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>防抖,节流</title>
+  <div id="demo" style="height: 100px;width: 100px;color: red;font-size: 50px;border: 1px solid green;text-align: center;line-height: 100px">
+    1
+  </div>
+</head>
+<body>
+  <script>
+    var divDome= document.getElementById('demo');
+    let num = 1;
+    function numAdd(){
+      console.log(2)
+      divDome.innerHTML = num++
+    }
+
+    function debounce(func,wait){
+      let timer;
+      return function(e){
+        let context = this;
+        let ars = arguments;
+        //console.log(e)
+        if(timer) clearTimeout(timer);
+        timer = setTimeout(()=>{
+          func.apply(context,ars);
+          //console.log(func.screenX)
+          console.log(e)
+        },wait)
+      }
+    }
+    divDome.onmousemove= debounce(numAdd,100)
+    //console.log(this.scrollX)
+  </script>
+</body>
+</html>
