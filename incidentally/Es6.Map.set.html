@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Map,set使用</title>
+</head>
+<body>
+  <script>
+    let arr = [['sex','boy'],['years',45],['where',"在这里"]]
+    let object= {'name':"阮江"}
+    function handleMap(){
+      console.log(arr)
+      console.log(object)
+      let map = new Map(arr)
+      map.get('sex');
+      map.set('home','city');
+      map.has('sex');
+      map.delete('where')
+      console.log(map.get('sex')+""+map.get('years'))
+    }
+    handleMap();
+
+    function handleSet(){
+      let set = new Set([1,2,3,4,5,5])
+     // set.clear()
+     set.add(9)
+      console.log(set)
+    }
+    handleSet()
+
+
+    function handleSymbol(){
+      let a=  {}
+      var name = Symbol();
+      a.name ="大熊"
+      a[name] = "阮江"
+      console.log(a)
+    }
+    handleSymbol()
+  </script>
+</body>
+</html>

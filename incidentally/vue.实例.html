@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+  <style>
+    .bgColor{
+      background: green;
+    }
+    .fontsize{
+      font-size: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div v-if="judge">{{name}}</div>
+    <div :style="fontSize" ref="reference" >大{{num}}</div>
+    <div :class="bgColor">我们是</div>
+    <div>隔阂</div>
+    <div :class="{bgColor:active}">我不是</div>
+    <button @click="bigBig">点</button>
+  </div>
+<script>
+ var vm = new Vue({
+  el:'#app',
+  data:{
+      msg:'message',
+      name:'this is my teacher',
+      active:true,
+      bgColor:{
+        bgColor:"bgColor",
+        fontsize:"fontsize",
+        
+      },
+      fontSize:{
+        color:"green",
+        fontSize:'14px',
+      },
+      judge:true,
+      num:1
+   }, 
+   
+   watch: {
+     num(newValue,oldValue){
+      console.log(newValue,oldValue)
+      
+     }
+   },
+  methods:{
+    bigBig(){
+      this.num++
+      let fontsize = parseInt(this.$refs.reference.style.fontSize)
+      let oldFontSize = this.fontSize.fontSize
+      let newFontSize = (parseInt(fontsize) + 1)
+      let num = fontsize +this.num + 'px'
+      if(fontsize != newFontSize){
+        fontsize = newFontSize 
+        oldFontSize = num
+        this.fontSize.fontSize = oldFontSize//
+        console.log(num)
+        console.log(oldFontSize)
+        console.log(this.fontSize.fontSize)
+      }
+    }
+  }
+ }) ;
+ </script>
+</body>
+</html>

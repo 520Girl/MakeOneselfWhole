@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <title>onload,ready</title>
+</head>
+<body>
+  <script>
+    
+    // $(document).ready(function(){
+    //   alert("表示dom元素加载完成的时候")
+    // })
+
+    // window.onload= function(){
+    //   alert("表示页面已经加载完成包括img都加载完成")
+    // }
+    
+    $(window).on('resize',function(){
+      console.log("我是");
+    })
+  </script>
+</body>
+</html>

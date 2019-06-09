@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>预加载</title>
+</head>
+<body>
+  <script>
+    var image = new Array()
+    console.log(image)
+    function perloader(arguments){
+      for(let i=0; i<perloader.arguments.length; i++){
+        image[i]= new Image()
+        image[i].src= perloader.arguments[i]
+      }
+      console.log(image)
+    } 
+    //perloader("http://1230","http://5678")
+
+    function handleOnload(func){
+      var oldOnload= window.onload;
+      if(typeof window.onload != "function"){
+        //console.log("正确")
+        window.onload=func
+      }else{
+        if(oldOnload){
+          oldOnload()
+        }
+        func()
+      }
+    }
+    handleOnload(perloader("http://1230","http://5678"));
+  </script>
+
+</body>
+</html>

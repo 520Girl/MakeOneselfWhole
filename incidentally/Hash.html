@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>路由hash</title>
+</head>
+<body>
+  <div>
+    <a href="#123000">首页</a>
+    <a href="#weiye">伟业</a>
+    <a href="#为">结尾</a>
+  </div>
+  <section id="content"></section>
+  <script>
+    window.addEventListener("hashchange",(e)=>{
+      let content = document.getElementById('content');
+      content.innerText = location.hash +" " + location.protocol
+    })
+  </script>
+</body>
+</html>

@@ -8,6 +8,30 @@
 </head>
 <body>
   <script>
+    {
+    let arr = [1,2,3];
+    let arr5 = [5,8,9]
+    let arr2 = [...arr,...arr5];
+    console.log(arr2);
+    function add(arrOne,...arr){
+      let arrs = new Array()
+      console.log(arrOne)
+      arrs.push(...arr)
+      console.log(arrs);
+    }
+    add(2,5,8,6,2223,8)
+    }
+
+    //
+    {
+      let arr = [1,2,3,4]
+      function add(x,y,z,e){
+        console.log(`${x}+${y}+${z}+${e} `)
+      }
+      //add.apply(null,arr)
+      add(...arr)
+    }
+
 
   </script>
 </body>
