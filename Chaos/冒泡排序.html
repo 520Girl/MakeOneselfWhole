@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>冒泡排序</title>
+</head>
+<body>
+  <div>
+    <h1>内容显示：</h1>
+    <p></p>
+  </div>
+  <script>
+    function sorts(element){
+      var n=0;
+      for(var i=0;i<element.length-1;i++){
+        for(var j=0;j<element.length-i-1;j++){
+          if(element[j] > element[j+1]){
+            var swrp = element[j];
+            element[j] = element[j+1];
+            element[j+1]=swrp; 
+          }
+        }
+      }
+    }
+    
+    var element =[7,88,5,9,6,1]
+    console.log('before'+element);
+        sorts(element);
+        console.log('after'+element);  
+  </script>
+</body>
+</html>

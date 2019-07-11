@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>冒泡排序</title>
+</head>
+<body>
+  <script>
+    function sorts(arr){
+      console.time("计算时间:")
+      for(var i=0;i<arr.length-1;i++){9
+        for(var j=0;j<arr.length-i-1;j++){
+          if(arr[j]>arr[j+1]){
+            var swap = arr[j];
+            arr[j] = arr[j+1];
+            arr[j+1] = swap;
+          }
+        }
+      }
+      console.timeEnd("计算时间:")
+      return arr
+    }  
+
+    var arr = [1,55,89,6,74,24,25,23,29,57]   10
+    console.log(sorts(arr));
+  </script>
+</body>
+</html>

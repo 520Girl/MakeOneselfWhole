@@ -7,9 +7,10 @@
     <title>冒牌排序</title>
 </head>
 <body>
+    <div id="address"></div>
     <script>
         function sorts(elements){
-            for(var i=0;i<elements.length -1 ;i++){
+            for(var i=0;i<elements.length-1 ;i++){
                 for(var j=0;j<elements.length-i-1;j++){
                     if(elements[j]>elements[j+1]){
                         var swap = elements[j];   //s=44
@@ -21,11 +22,16 @@
             }
         }
         var elements=[44,7,3,43,66,9]; //这人真心牛逼
-        console.log('before'+elements);
-        sorts(elements);
-        console.log('after'+elements);
-
         
+        var oAddress= document.getElementById("address");
+        document.write( 'before'+elements);
+        sorts(elements);
+        oAddress.innerHTML = 'after'+elements;
+        console.log('before'+elements);
+        console.time("test")
+        sorts(elements);
+        console.timeEnd("test")
+        console.log('after'+elements);    
     </script>
 </body>
 </html>

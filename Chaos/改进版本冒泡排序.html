@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>改进版本冒泡排序</title>
+</head>
+<body>
+  <script>
+  function sorts(arr){
+    console.time("计算时间:")
+    
+    var i =arr.length-1;
+
+    while(i>0){
+      var pos =0 ;
+      for(var j = 0 ; j < i ; j++ ){
+        if( arr[j] > arr[j+1]){
+          pos = j;
+          var tmp = arr[j];
+          arr[j] = arr[j+1];
+          arr[j+1] = tmp;
+        }
+      }
+      i=pos
+    }
+    console.timeEnd("计算时间:")
+    return arr
+  }  
+  var arr = [1,55,89,6,74,24,25,23,29,57]
+    console.log(sorts(arr));
+  </script>
+</body>
+</html>

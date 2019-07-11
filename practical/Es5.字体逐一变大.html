@@ -7,15 +7,23 @@
   <title>字体逐一变大</title>
 </head>
 <body>
-  
-  <script type="text/javascript">
-    function upperCase(x){
-      var y = document.getElementById(x).value;
-              document.getElementById(x).value=y.toUpperCase()
-    } 
-  </script>
-  <div>
-    字体逐一变大:<input name="email" id="email" onkeyup="upperCase(this.id)"/>
-  </div>
+    <div>
+      字体逐一变大:<input type="text" value=""  placeholder="请输入英文字母" id="case"/>
+    </div>
 </body>
 </html>
+<script type="text/javascript">
+  function upperCase(){
+   var oCase = document.getElementById('case').value;
+   document.getElementById('case').value = oCase.toUpperCase()
+  }
+  onkeypress=function(event){
+    if(window.event.keyCode == 13){
+      upperCase()
+    }
+    // if(window.event.keyCode >= 65 && window.event.keyCode <= 90){
+    //   upperCase()
+    // }
+    //console.log(window.event) 
+   }
+ </script>

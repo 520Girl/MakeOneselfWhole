@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>js按键事件</title>
+
+</head>
+<body>
+  <div style="display: none;" id="one">天空飘来五个字，这都不是事</div>
+  <header>
+    <ul>
+      <li class="liTag"></li>
+      <li name="tagName"></li>
+      <li></li>
+    </ul>
+  </header>
+</body>
+</html>
+<script>
+  window.onload=function( event ){
+      if( window.event.keyCode == 13){
+          var jsDivTagName = document.getElementsByTagName("div");
+          var newValue  = jsDivTagName[0].style.display  
+                newValue="block";
+                jsDivTagName[0].style.display = newValue;    
+      }
+      if(window.event.keyCode == 50 ){
+        var classLiTag = document.getElementsByClassName("liTag");
+        var tagName = document.getElementsByName("tagName")
+        var tagId = document.getElementById("one")
+        
+        var tagId = document.getElementById("one")
+        var tagName = document.getElementsByName("tagName")
+        var classLiTag = document.getElementsByClassName("liTag")
+        var tagName = document.getElementsByTagName("li")
+      }
+  }
+</script>
