@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Math使用</title>
+  <div>
+    验证码:<input type="text" value=""/>
+    <button id="button" onclick="MathMathod()">refresh</button>
+  </div>
+</head>
+<body>
+  <script>
+    function MathMathod(){
+      var oInput = document.getElementsByTagName('input');
+      //console.log(oInput[0].value=100)
+      var oButton = document.getElementById("button");
+      function num(){
+        var numColor = "#79b122 " ;
+        var num = Math.random() * Math.random() * 10000  + 1550 
+
+           if(num < Math.pow(10,2) ){
+             numColor = "rgb(22, 191, 161)"
+           }else if(num >= Math.pow(10,2) && num < 2000){
+             numColor ="rgb(33, 22, 191)"
+           }else if(num >= 2000 && num < 4000){
+             numColor ="rgb(191, 22, 185)"
+           }else if(num >= 4000 && num < 6000){
+             numColor ="rgb(191, 22, 59)"
+           }else if(num >= 6000 && num < 8000){
+             numColor = "rgb(243, 183, 5)"
+           }
+
+            oInput[0].style.color=numColor;
+            oInput[0].value = Math.round(num);
+      }
+      function Letter(){
+        var arr = [a,b,c,d,e,f,j,k,l,m,n,o,p,q,r,s,t,u,v,w,A,B,C,D,E,F,G,K,L,M,N,P,Q,R,S,T,U,V]
+
+      }
+     num()
+    }
+//待拆分统计数字长度
+    function NumLength(){
+
+    }
+  </script>
+</body>
+</html>

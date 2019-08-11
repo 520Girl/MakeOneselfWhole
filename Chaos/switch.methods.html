@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="refresh" content="1"/>
+  <!-- <meta http-equiv="refresh" content="1;url=http://www.baidu.com"/> -->
+  <title>switch使用</title>
+  <div name="dome"></div>
+</head>
+<body>
+  <script>
+    function SwitchMethods(num){
+      var text = "";
+      switch (num){
+        case 0: 
+          text = "sunday";
+          break;
+        case 1:
+          text = "Monday";
+          break;
+        case 2:
+          text = "Tuesday";
+          break;
+        case 3:
+          text = "Wednesday";
+          break;
+        case 4:
+          text = "Thursday";
+          break;
+        case 5:
+          text = "friday";
+          break;
+        case 6:
+          text = "Saturday";
+          break;
+          default:
+          text = "undefind"
+      }
+      return text
+    }
+
+    function Dates(){
+      var date = new Date();
+      var years = date.getFullYear();
+      var month = date.getMonth() + 1 ;
+      var week = date.getDay()
+      var day = date.getDate();
+      var houes = date.getHours();
+      var minutes = date.getMinutes();
+      var second = date.getSeconds();
+      var colck = years + "年" + month + "月" + addZero(day) + "日" +" "+ addZero(houes) + ":" + addZero(minutes) + ":" + addZero(second ) + " " + SwitchMethods(week)
+      return colck
+    }
+
+    function addZero(data){
+      if(data >= 0 && data <10 ){
+        data = "0" + data;
+        return data
+      }
+      return data;
+    }
+    var oDiv = document.getElementsByName("dome")[0];
+    oDiv.innerText = "now" + " " + Dates();
+  </script>
+</body>
+</html>

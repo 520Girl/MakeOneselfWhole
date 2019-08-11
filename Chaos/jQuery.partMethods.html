@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery.part.Methods</title>
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+    <div class="dome">
+      <div class="section">
+        <a href="">
+          <img src="" title="" alt=""/>
+        </a>
+      </div>
+      <div class="sectionBlock">
+        <a href="">
+          <img src="" title="" alt=""/>
+        </a>
+      </div>
+    </div>
+</head>
+<body>
+  <script>
+  $(function(){
+    $.ajax({
+      url:"",
+      type:"get",
+      dataType:"JSON",
+      success:function(data){
+        var page =" ";
+        for(var i= 0; i<data.length; i++){
+          page += '<div class="section"><a href="" > </a>';
+          page += '<div class="sectionBlock">';
+          page +='<a href="" style="display:block;width:auto;height:auto;background:url("") no-repeat 100% 100% left top">';
+          page +='<img src="" title="" alt=""/></a></div>';
+          //hide(),show(),removeClass(),parent(),find(),hasClass(),addClass(),index(),.html()
+          //eq(n),指定元素组中的第n个元素，siblings("class")兄弟，同胞，选择元素组中所有类为class的元素
+          //children();儿子
+          page += '<img src="" >'
+        }   
+      }
+    })
+
+  })
+  </script>
+</body>
+</html>
